@@ -8,7 +8,7 @@ function DefautLeyout () {
   return(
     <>
 
-    <Header />
+    <Header /> 
     <Outlet />
 
     </>

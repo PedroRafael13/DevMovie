@@ -3,12 +3,16 @@ import Button from "../../components/Button"
 import Slider from "../../components/Slider"
 
 import api from "../../services/api"
+import { getImagens } from "../../utils/getImagens"
 import { Background, Container, ContainerButtons, Info, Poster } from "./styles"
 
 function Home () {
 
 const [movie, setMovie] = useState()
 const [topMovie, setTopMovies] = useState()
+const [topSeries, setTopSeries] = useState()
+const [popularSeries, setSeriesPopular] = useState()
+const [popularPeople, setPopularPeople] = useState()
 
 useEffect(()=> {
 
@@ -24,16 +28,38 @@ useEffect(()=> {
     
     setTopMovies(results)
   }
+
+  async function getTopSeries (){
+    const {data : {results}} = await api.get('/tv/top_rated')
+  
     
+    setTopSeries(results)
+  }
+    
+  async function getSeriesPopular (){
+    const {data : {results}} = await api.get('/tv/popular')
+  
+    setSeriesPopular(results)
+  }
+
+  async function getPopularPeople (){
+    const {data : {results}} = await api.get('/person/popular')
+  
+    setPopularPeople(results)
+  }
+
+    getSeriesPopular()
     getMovies()
     getTopMovies()
+    getTopSeries()
+    getPopularPeople ()
 
 },[])  
 
   return(
     <>
       {movie && (
-        <Background img={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}>
+        <Background img={getImagens(movie.backdrop_path)}>
 
         <Container>
           <Info>
@@ -47,13 +73,16 @@ useEffect(()=> {
           </Info>
 
           <Poster>
-            <img alt="capa-do-filme" src={`https://image.tmdb.org/t/p/original${movie.poster_path}`} />
+            <img alt="capa-do-filme" src={getImagens(movie.poster_path)} />
           </Poster>
           </Container>
         </Background>
       )}
 
     {topMovie && <Slider info={topMovie} title={'Top Filmes'} />}
+    {topSeries && <Slider info={topSeries} title={'Top Series'} />}
+    {popularSeries && <Slider info={popularSeries} title={'Series Populares'} />}
+    {popularPeople && <Slider info={popularPeople} title={'Atores Populares'} />}
 
     </>
   )

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import Button from "../../components/Button"
+import Modal from "../../components/Modal"
 import Slider from "../../components/Slider"
 
 import api from "../../services/api"
@@ -101,6 +102,7 @@ useEffect(()=> {
     <>
       {movie && (
         <Background img={getImagens(movie.backdrop_path)}>
+          <Modal movieId={movie.id} />
 
         <Container>
           <Info>

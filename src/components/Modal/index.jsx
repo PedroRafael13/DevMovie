@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 //import { Background } from "../../containers/Home/styles"
 import api from "../../services/api"
-import {  Background, Container } from "./style"
+import {  Background, Container} from "./style"
 
-function Modal ({movieId}){
+function Modal ({movieId, setShowModal }){
   const [movie, setMovie] = useState ()
 
  useEffect(()=>{
@@ -19,9 +19,11 @@ function Modal ({movieId}){
 
 
   return (
-    <Background>
+
+    <Background onClick={() => setShowModal(false)}>
       {movie && (
     <Container>
+        <h1>X</h1>
       <iframe
         src={`http://www.youtube.com/embed/${movie.key}`}
         title="Trailer Youtube"

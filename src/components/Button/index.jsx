@@ -1,13 +1,13 @@
 import { ButtonRed, ButtonWhite} from "./style"
 
-function Button ({ children, red}){
+function Button ({ children, red, ...rest}){
 
   return (
     <>
     {red ? (
-      <ButtonRed>{children}</ButtonRed>
+      <ButtonRed{...rest}>{children}</ButtonRed>
     ) : (
-      <ButtonWhite>{children}</ButtonWhite>
+      <ButtonWhite{...rest}>{children}</ButtonWhite>
     )}
     </>
   )

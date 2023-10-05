@@ -9,6 +9,7 @@ import { Background, Container, ContainerButtons, Info, Poster } from "./styles"
 
 function Home () {
 
+  const [showModal, setShowModal] = useState(false)  
 const [movie, setMovie] = useState()
 const [certificações, setcertificações] = useState()
 const [topMovie, setTopMovies] = useState()
@@ -102,7 +103,7 @@ useEffect(()=> {
     <>
       {movie && (
         <Background img={getImagens(movie.backdrop_path)}>
-          <Modal movieId={movie.id} />
+          {showModal && <Modal movieId={movie.id} setShowModal={setShowModal}/>}
 
         <Container>
           <Info>
@@ -111,7 +112,7 @@ useEffect(()=> {
 
           <ContainerButtons>
             <Button red>Assista Agora</Button>
-            <Button>Assista o Trailer</Button>
+            <Button onClick={() => setShowModal(true) } >Assista o Trailer</Button>
           </ContainerButtons>  
           </Info>
 

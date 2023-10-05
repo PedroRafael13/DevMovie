@@ -12,7 +12,6 @@ export const Background = styled.div`
 `
 
 export const Container = styled.div `
-  background: #000;
   width: 50%;
   display: flex;
   justify-content:center;
@@ -20,6 +19,11 @@ export const Container = styled.div `
   position: fixed;
   padding:50px;
   max-width:1200px;
+
+  h1{
+    color: #ffff;
+    margin:0 0 500px 0;
+  }
 
   iframe{
     border:none;

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import Button from "../../components/Button"
 import Modal from "../../components/Modal"
 import Slider from "../../components/Slider"
+import { useNavigate } from "react-router-dom"
 
 import api from "../../services/api"
 import { getImagens } from "../../utils/getImagens"
@@ -20,6 +21,7 @@ const [wantedPeople, setWantedPeople] = useState()
 const [emBreve, setEmBreve] = useState()
 const [topAr, setTopAr] = useState()
 const [airingToday, setAiringToday] = useState()
+const navigation = useNavigate()
 
 useEffect(()=> {
 
@@ -111,7 +113,7 @@ useEffect(()=> {
           <p>{movie.overview}</p>
 
           <ContainerButtons>
-            <Button red>Assista Agora</Button>
+            <Button onClick={() => navigation(`Detelhes/${movie.id}`)} red>Assista Agora</Button>
             <Button onClick={() => setShowModal(true) } >Assista o Trailer</Button>
           </ContainerButtons>  
           </Info>

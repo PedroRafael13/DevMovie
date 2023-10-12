@@ -40,7 +40,6 @@ useEffect(()=> {
   async function getTopMovies (){
     const {data : {results}} = await api.get('/movie/top_rated')
   
-    
     setTopMovies(results)
   }
 

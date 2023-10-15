@@ -4,13 +4,13 @@ import Modal from "../../components/Modal"
 import Slider from "../../components/Slider"
 import { useNavigate } from "react-router-dom"
 
-import api from "../../services/api"
 import { getImagens } from "../../utils/getImagens"
 import { Background, Container, ContainerButtons, Info, Poster } from "./styles"
+import { getAiringToday, getBreve, getCertificações, getMovies, getPopularPeople, getSeriesPopular, getTopAr, getTopMovies, getTopSeries, getWantedPeople } from "../../services/getData"
 
 function Home () {
 
-  const [showModal, setShowModal] = useState(false)  
+const [showModal, setShowModal] = useState(false)  
 const [movie, setMovie] = useState()
 const [certificações, setcertificações] = useState()
 const [topMovie, setTopMovies] = useState()
@@ -25,79 +25,21 @@ const navigation = useNavigate()
 
 useEffect(()=> {
 
-  async function getMovies (){
-    const {data : {results}} = await api.get('/movie/popular')
-  
-    setMovie(results[1])
+  async function getAllDate (){
+
+    setMovie(await getMovies())
+    setcertificações(await getCertificações())
+    setTopMovies(await getTopMovies())
+    setTopSeries(await getTopSeries())
+    setSeriesPopular(await getSeriesPopular())
+    setPopularPeople(await getPopularPeople())
+    setWantedPeople(await getWantedPeople())
+    setEmBreve(await getBreve())
+    setTopAr(await getTopAr())
+    setAiringToday(await getAiringToday())
   }
 
-  async function getCertificações (){
-    const {data : {results}} = await api.get('/movie/now_playing')
-  
-    setcertificações(results)
-  }
-
-  async function getTopMovies (){
-    const {data : {results}} = await api.get('/movie/top_rated')
-  
-    setTopMovies(results)
-  }
-
-  async function getTopSeries (){
-    const {data : {results}} = await api.get('/tv/top_rated')
-  
-    
-    setTopSeries(results)
-  }
-    
-  async function getSeriesPopular (){
-    const {data : {results}} = await api.get('/tv/popular')
-  
-    setSeriesPopular(results)
-  }
-
-  async function getPopularPeople (){
-    const {data : {results}} = await api.get('/person/popular')
-  
-    setPopularPeople(results)
-  }
-
-  async function getWantedPeople(){
-    const {data : {results}} = await api.get('/trending/person/day')
-  
-    setWantedPeople(results)
-  }
-
-  async function getBreve (){
-    const {data : {results}} = await api.get('/movie/upcoming')
-  
-    
-    setEmBreve(results)
-  }
-
-  async function getTopAr (){
-    const {data : {results}} = await api.get('/tv/on_the_air')
-  
-    setTopAr(results)
-  }
-
-  async function getAiringToday (){
-    const {data : {results}} = await api.get('/tv/airing_today')
-  
-    setAiringToday(results)
-  }
-
-    getSeriesPopular()
-    getMovies()
-    getCertificações()
-    getTopMovies()
-    getTopSeries()
-    getPopularPeople()
-    getWantedPeople()
-    getBreve()
-    getTopAr()
-    getAiringToday()
-
+  getAllDate()
 },[])  
 
   return(

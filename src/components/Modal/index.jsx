@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react"
-import { Background } from "../../containers/Home/styles"
-
-
 import { getMovie } from "../../services/getData"
-import {  Container} from "./style"
+
+import {  Background, Container} from "./style"
 
 function Modal ({movieId, setShowModal }){
   const [movie, setMovie] = useState ()
@@ -13,8 +11,8 @@ function Modal ({movieId, setShowModal }){
     setMovie(await getMovie(movieId))
   }
 
-    getMovie()
- }, [])
+    getMovies()
+ },[])
 
 
   return (

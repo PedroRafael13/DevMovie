@@ -2,7 +2,7 @@ import api from '../services/api'
 
 export async function getMovies(){
   const {data : {results}} = await api.get('/movie/popular')
-  return results
+  return results[0]
 }
 
 export async function getCertificações (){
@@ -45,7 +45,7 @@ export async function getTopAr (){
   return results
 }
 
-export async function etAiringToday (){
+export async function getAiringToday (){
   const {data : {results}} = await api.get('/tv/airing_today')
   return results
 }

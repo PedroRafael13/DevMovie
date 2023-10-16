@@ -24,19 +24,36 @@ const [airingToday, setAiringToday] = useState()
 const navigation = useNavigate()
 
 useEffect(()=> {
-
   async function getAllDate (){
+    console.time('time')
+    Promise.all([
 
-    setMovie(await getMovies())
-    setcertificações(await getCertificações())
-    setTopMovies(await getTopMovies())
-    setTopSeries(await getTopSeries())
-    setSeriesPopular(await getSeriesPopular())
-    setPopularPeople(await getPopularPeople())
-    setWantedPeople(await getWantedPeople())
-    setEmBreve(await getBreve())
-    setTopAr(await getTopAr())
-    setAiringToday(await getAiringToday())
+        getMovies(),
+        getCertificações(),
+        getTopMovies(),
+        getTopSeries(),
+        getSeriesPopular(),
+        getPopularPeople(),
+        getWantedPeople(),
+        getBreve(),
+        getTopAr(),
+        getAiringToday(),
+
+    ]).then(([movies, certificações, topMovie, topSeries, popularSeries, popularPeople, wantedPeople, emBreve, topAr, airingToday]) => {
+        setMovie(movies)
+        setcertificações(certificações)
+        setTopMovies(topMovie)
+        setTopSeries(topSeries)
+        setSeriesPopular(popularSeries)
+        setPopularPeople(popularPeople)
+        setWantedPeople(wantedPeople)
+        setEmBreve(emBreve)
+        setTopAr(topAr)
+        setAiringToday(airingToday)
+    })
+    .catch((error)=> console.log(error))
+    
+    console.time('end')
   }
 
   getAllDate()

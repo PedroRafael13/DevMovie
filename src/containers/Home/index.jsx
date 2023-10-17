@@ -71,7 +71,7 @@ useEffect(()=> {
           <p>{movie.overview}</p>
 
           <ContainerButtons>
-            <Button onClick={() => navigation(`Detelhes/${movie.id}`)} red>Assista Agora</Button>
+            <Button onClick={() => navigation(`/detail/${movie.id}`)} red>Assista Agora</Button>
             <Button onClick={() => setShowModal(true) } >Assista o Trailer</Button>
           </ContainerButtons>  
           </Info>

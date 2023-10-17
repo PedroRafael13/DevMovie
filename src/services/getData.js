@@ -2,7 +2,7 @@ import api from '../services/api'
 
 export async function getMovies(){
   const {data : {results}} = await api.get('/movie/popular')
-  return results
+  return results [0]
 }
 
 export async function getCertificações (){
@@ -52,9 +52,9 @@ export async function getAiringToday (){
 
 // Parte do Modal e Datail
 
-export async function getMovieVideo(movieId){
-  const {data} = await api.get(`/movie/${movieId}/videos`)
-  return data
+export async function getMovieVideos(movieId){
+  const {data: {results}} = await api.get(`/movie/${movieId}/videos`)
+  return results
 }
 
 export async function getMovieCredits(movieId){
@@ -63,11 +63,11 @@ export async function getMovieCredits(movieId){
 }
 
 export async function getMovieSimilar(movieId){
-  const {results} = await api.get(`/movie/${movieId}/similar`)
-  return {results}
+  const {data: {results}} = await api.get(`/movie/${movieId}/similar`)
+  return results
 }
 
 export async function getMovieById(movieId){
   const {data} = await api.get(`/movie/${movieId}`)
-  return {data}
+  return data
 }

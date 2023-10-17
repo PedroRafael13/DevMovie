@@ -15,7 +15,7 @@ function Router () {
         <Route path='/' element={<Home />} />
         <Route path='/filmes' element={<Movie />} />
         <Route path='/Series/Animes' element={<Serie />} />
-        <Route path='/Detelhes/:id' element={<Detail />} />
+        <Route path='/detail/:id' element={<Detail />} />
       </Route>
     </Routes> 
 

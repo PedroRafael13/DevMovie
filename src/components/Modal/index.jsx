@@ -22,7 +22,7 @@ function Modal ({movieId, setShowModal }){
     <Container>
         <h1>X</h1>
       <iframe
-        src={`http://www.youtube.com/embed/${movie.key}`}
+        src={`http://www.youtube.com/embed/${movie[0].key}`}
         title="Trailer Youtube"
         height="500px"
         width="100%"

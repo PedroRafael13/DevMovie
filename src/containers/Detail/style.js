@@ -56,7 +56,7 @@ export const Cover = styled.div`
   z-index:99;
 
   img{
-    width:500px;
+    width:350px;
     border-radius:30px;
     box-shadow:rgba(100 100  111/20%) 0px 7px 29px 0px;
     animation: ${scale} 0.5s linear;
@@ -85,4 +85,32 @@ export const Info = styled.div`
     margin-bottom:30px;
   }
 
+`
+export const ContainerMovie = styled.div`
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding: 20px;
+    width: 100%;
+
+    div{
+      display: flex;
+      flex-direction:column;
+      max-width:1000px;
+      width: 100%;
+      height: 100%;
+      margin: 20px 0;
+    }
+
+    h4{
+      color: #ffffff;
+      font-size:16px;
+      font-weight:700px;
+      margin-bottom:20px;
+    }
+
+    iframe{
+      border: none;
+    }
 `

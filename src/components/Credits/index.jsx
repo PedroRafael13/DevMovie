@@ -8,11 +8,11 @@ function Credits ({credits}){
     <Title>Créditos</Title>
     {credits && (
     <Container>
-      {credits.slice(0, 5).map(artist => (
-        <div key={artist.id}>
-          <img src={getImagens(artist.profile_path)} />
-          <p>{artist.original_name}</p>
-        </div>
+        {credits.slice(0, 5).map(artist => (
+          <div key={artist.id}>
+            <img src={getImagens(artist.profile_path)} />
+            <p>{artist.original_name}</p>
+          </div>
       ))}
       <div></div>
     </Container>

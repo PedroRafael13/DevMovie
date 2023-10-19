@@ -2,9 +2,10 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import {getImagens} from "../../utils/getImagens"
 import { getMovieById, getMovieCredits, getMovieSimilar, getMovieVideos } from "../../services/getData"
-import { Background,Container, Cover, Info} from "./style"
+import { Background,Container, Cover, Info, ContainerMovie} from "./style"
 import SpanGenres from "../../components/SpanGenres"
 import Credits from "../../components/Credits"
+import Slider from "../../components/Slider"
 
 function Detail (){
 const {id} = useParams()
@@ -12,6 +13,7 @@ const [movie, setMovie] = useState()
 const[movieVideos, setVideos] = useState()
 const[movieCredits, setCredits] = useState()
 const[movieSimilar, setSimilar] = useState()
+
 
   useEffect(() => {
     async function getAllDate() {
@@ -23,7 +25,7 @@ const[movieSimilar, setSimilar] = useState()
         getMovieSimilar(id)
 
       ]).then(([movie, videos, credits, similar]) => {
-        console.log({ movie, videos, credits, similar })
+        console.log({ movie, videos, credits, similar})
 
         setMovie(movie)
         setVideos(videos)
@@ -54,6 +56,20 @@ const[movieSimilar, setSimilar] = useState()
         <Credits credits={movieCredits} />
       </Info>
       </Container>
+      <ContainerMovie>
+        {movieVideos && movieVideos.map((video) => (
+          <div key={video.id}>
+            <h4>{video.name}</h4>
+            <iframe
+                src={`http://www.youtube.com/embed/${movie.key}`}
+                title="Trailer Youtube"
+                height="500px"
+                width="100%"
+            ></iframe>
+          </div>
+        ))}
+      </ContainerMovie>
+      {movieSimilar && <Slider info={movieSimilar} title={'Filmes Similares'} />}
       </>
     )}
     </>

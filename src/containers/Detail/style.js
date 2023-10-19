@@ -62,3 +62,27 @@ export const Cover = styled.div`
     animation: ${scale} 0.5s linear;
   }
 `
+
+export const Info = styled.div`
+  padding: 20px;
+  width: 50%;
+  z-index:99;
+  display: flex;
+  align-items:flex-start;
+  flex-direction:column;
+
+  h2{
+    font-size:50px;
+    font-weight:700;
+    color: #ffffff;
+
+  }
+
+  p{
+    font-weight:700;
+    color: #ffffff;
+    margin-top:20px;
+    margin-bottom:30px;
+  }
+
+`

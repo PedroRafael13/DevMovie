@@ -3,7 +3,7 @@ import {  getMovieVideos } from "../../services/getData"
 
 import {  Background, Container} from "./style"
 
-function Modal ({movieId, setShowModal }){
+function Modal ({movieId, setShowModal, }){
   const [movie, setMovie] = useState ()
 
  useEffect(()=>{

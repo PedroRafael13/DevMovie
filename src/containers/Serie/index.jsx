@@ -1,46 +1,43 @@
 import { useEffect, useState } from "react"
 import SliderSerie from "../../components/SliderSerie"
-import api from "../../services/api"
+import { getPopular, getSerie, getSerieHere, getSerieKeep } from "../../services/getSerie"
 import { getImagens } from "../../utils/getImagens"
-import { Container, Background } from "./styles"
-
+import { Container, Background, Info, Poster } from "./styles"
+import Button from "../../components/Button"
+import { ContainerButtons } from "../Home/styles"
+import ModalSerie from "../../components/ModalSerie"
 
 function Serie () {
+
+const [serieModal, setShowSerie] = useState(false)
 const [serie, setSerie] = useState()
 const [seriePopular, setSeriePopular] = useState()
 const [serieHere, setSerieHere] = useState()
 const [serieKeep, setSerieKeep] = useState()
 
+
   useEffect(() => {
 
-    async function getSerie(){
-      const {data: {results}} = await api.get('/tv/airing_today')
-      
-      setSerie(results[2])
+    async function getAllDate() {
+
+      Promise.all([
+        getSerie(),
+        getPopular(),
+        getSerieHere(),
+        getSerieKeep()
+
+      ]).then(([serie, popular, here, keep]) => {
+        
+        setSerie(serie)
+        setSeriePopular(popular)
+        setSerieHere(here)
+        setSerieKeep(keep)
+
+      }).catch((error) => console.log(error))
+
     }
 
-    async function getPopular(){
-      const {data: {results}} = await api.get('/tv/popular')
-      
-      setSeriePopular(results)
-    }
-
-    async function getSerieHere(){
-      const {data: {results}} = await api.get('/tv/top_rated')
-      
-      setSerieHere(results)
-    }
-
-    async function getSerieKeep(){
-      const {data: {results}} = await api.get('/tv/on_the_air')
-      
-      setSerieKeep(results)
-    }
-    
-    getSerie()
-    getPopular()
-    getSerieHere()
-    getSerieKeep()
+    getAllDate()
 
   },[])
   
@@ -50,8 +47,21 @@ const [serieKeep, setSerieKeep] = useState()
     <>
     {serie && (
       <Background img={getImagens(serie.backdrop_path)}>
-        <Container>
-          <p>This my Series</p>
+        {serieModal && <ModalSerie serieId={serie.id} setShowSerie={setShowSerie} />}
+
+        <Container>        
+          <Info> 
+            <h1>{serie.name}</h1>
+            <p>{serie.overview}</p>
+
+            <ContainerButtons>
+              <Button red>Assista Agora</Button>
+              <Button onClick={() => setShowSerie(true)} >Veja o trailer</Button>
+            </ContainerButtons>
+          </Info>   
+        <Poster>
+            <img src={getImagens(serie.poster_path)} />
+        </Poster>
         </Container>
       </Background>
       )}

@@ -61,10 +61,10 @@ const[movieSimilar, setSimilar] = useState()
           <div key={video.id}>
             <h4>{video.name}</h4>
             <iframe
-                src={`http://www.youtube.com/embed/${movie.key}`}
-                title="Trailer Youtube"
-                height="500px"
-                width="100%"
+            src={`http://www.youtube.com/embed/${video.key}`}
+            title="Trailer Youtube"
+            height="500px"
+            width="100%"
             ></iframe>
           </div>
         ))}

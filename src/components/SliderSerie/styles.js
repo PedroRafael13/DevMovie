@@ -1,17 +1,7 @@
-import styled, {keyframes}  from "styled-components";
-
-const scale = keyframes`
-  from{
-    transform: scale(0);
-  }
-  to{
-    transform: scale(1);
-  }
-`
+import  styled  from "styled-components";
 
 export const Container = styled.div`
 
-animation: ${scale} 0.5s linear;
 background:#000;
 padding:0 20px;
 

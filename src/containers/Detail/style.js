@@ -2,10 +2,10 @@ import styled, {keyframes} from "styled-components";
 
 const scale = keyframes `
   from{
-    transform: scale(0)
+    transform: scale(0);
   }
   to{
-    transform: scale(1)
+    transform: scale(1);
   }
 `
 

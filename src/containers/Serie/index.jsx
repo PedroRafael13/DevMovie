@@ -6,6 +6,7 @@ import { Container, Background, Info, Poster } from "./styles"
 import Button from "../../components/Button"
 import { ContainerButtons } from "../Home/styles"
 import ModalSerie from "../../components/ModalSerie"
+import { useNavigate } from "react-router-dom"
 
 function Serie () {
 
@@ -14,7 +15,7 @@ const [serie, setSerie] = useState()
 const [seriePopular, setSeriePopular] = useState()
 const [serieHere, setSerieHere] = useState()
 const [serieKeep, setSerieKeep] = useState()
-
+const navigation = useNavigate()
 
   useEffect(() => {
 
@@ -55,7 +56,7 @@ const [serieKeep, setSerieKeep] = useState()
             <p>{serie.overview}</p>
 
             <ContainerButtons>
-              <Button red>Assista Agora</Button>
+              <Button onClick={() => navigation(`/detailSerie/${serie.id}`)} red>Assista Agora</Button>
               <Button onClick={() => setShowSerie(true)} >Veja o trailer</Button>
             </ContainerButtons>
           </Info>   

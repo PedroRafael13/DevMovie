@@ -44,7 +44,7 @@ const[movieSimilar, setSimilar] = useState()
     <>
     {movie && (
         <>
-          <Background image={getImagens(movie.backdrop_path)} />
+        <Background image={getImagens(movie.backdrop_path)} />
       <Container>
       <Cover>
         <img src={getImagens(movie.poster_path)} />

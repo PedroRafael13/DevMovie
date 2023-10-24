@@ -1,9 +1,13 @@
 import api from './api'
 
     export  async function getSerie(){
-      const {data: {results}} = await api.get('/tv/airing_today')
+      const {data: {results}} = await api.get('/tv/top_rated')
       return(results[1])
+    }
 
+    export  async function getSeriePopular(){
+      const {data: {results}} = await api.get('/tv/top_rated')
+      return(results)
     }
 
     export async function getPopular(){
@@ -12,7 +16,7 @@ import api from './api'
     }
 
     export async function getSerieHere(){
-      const {data: {results}} = await api.get('/tv/top_rated')
+      const {data: {results}} = await api.get('/tv/airing_today')
       return(results)
     }
 
@@ -40,3 +44,5 @@ import api from './api'
       const {data} = await api.get(`/tv/${serieId}`)
       return data
     }
+
+    

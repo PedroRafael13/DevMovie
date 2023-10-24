@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import SliderSerie from "../../components/SliderSerie"
-import { getPopular, getSerie, getSerieHere, getSerieKeep } from "../../services/getSerie"
+import { getPopular, getSerie, getSerieHere, getSerieKeep, getSeriePopular } from "../../services/getSerie"
 import { getImagens } from "../../utils/getImagens"
 import { Container, Background, Info, Poster } from "./styles"
 import Button from "../../components/Button"
@@ -12,6 +12,7 @@ function Serie () {
 
 const [serieModal, setShowSerie] = useState(false)
 const [serie, setSerie] = useState()
+const [seriePopularShow, setShow] = useState()
 const [seriePopular, setSeriePopular] = useState()
 const [serieHere, setSerieHere] = useState()
 const [serieKeep, setSerieKeep] = useState()
@@ -23,13 +24,16 @@ const navigation = useNavigate()
 
       Promise.all([
         getSerie(),
+        getSeriePopular(),
         getPopular(),
         getSerieHere(),
         getSerieKeep()
 
-      ]).then(([serie, popular, here, keep]) => {
+      ]).then(([serie, seriepopular ,popular, here, keep]) => {
+        console.log({serie, seriepopular ,popular, here, keep, })
         
         setSerie(serie)
+        setShow(seriepopular)
         setSeriePopular(popular)
         setSerieHere(here)
         setSerieKeep(keep)
@@ -67,6 +71,7 @@ const navigation = useNavigate()
       </Background>
       )}
       {seriePopular && <SliderSerie infoSerie={seriePopular} titleSerie={"Series Populares"} />}
+      {seriePopularShow && <SliderSerie infoSerie={seriePopularShow} titleSerie={"Series e séries para melhorar seu dia"} />}
       {serieHere && <SliderSerie infoSerie={serieHere} titleSerie={"As favoritas da galera"} />}
       {serieKeep && <SliderSerie infoSerie={serieKeep} titleSerie={"Acabaram de chegar"} />}
     </>

@@ -85,3 +85,31 @@ export const Info = styled.div`
     margin-bottom:30px;
   }
 `
+export const ContainerSerie = styled.div`
+    display: flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    padding: 20px;
+    width: 100%;
+
+    div{
+      display: flex;
+      flex-direction:column;
+      max-width:1000px;
+      width: 100%;
+      height: 100%;
+      margin: 20px 0;
+    }
+
+    h4{
+      color: #ffffff;
+      font-size:16px;
+      font-weight:700px;
+      margin-bottom:20px;
+    }
+
+    iframe{
+      border: none;
+    }
+`

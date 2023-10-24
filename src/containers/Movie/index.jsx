@@ -18,7 +18,7 @@ useEffect(() => {
     const {data: {results}} = await api.get('/movie/popular')
     
 
-    setMovieTwo(results[0])
+    setMovieTwo(results[3])
   }
 
   async function getMovieThree(){
@@ -53,7 +53,7 @@ useEffect(() => {
     {movieTwo && (
     <Background img={getImagens(movieTwo.backdrop_path)}>
     <Container>
-       <div>This is Movie</div>
+       <div></div>
     </Container>
     </Background>
     )}

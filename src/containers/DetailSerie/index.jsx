@@ -1,8 +1,12 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import SpanGenres from "../../components/SpanGenres"
 import { getSeri0eById, getSeriesCredits, getSeriesSimilar, getSerieVideo } from "../../services/getSerie"
 import { getImagens } from "../../utils/getImagens"
-import { Container, Background, Cover, Info} from "./style"
+import { Container, Background, Cover, Info, ContainerSerie} from "./style"
+
+import CreditsSerie from "../../components/CreditsSerie"
+import SliderSerie from "../../components/SliderSerie"
 
 function DetailSerie(){
 const {id} = useParams()
@@ -47,10 +51,27 @@ const [serieSimilar, setSerieSimilar] = useState()
               </Cover>
               <Info> 
                 <h2>{serie.name}</h2>
-                <div>Genero</div>
-                <p>{serie.overview}</p>          
+                <SpanGenres genres={serie.genres} />
+                <p>{serie.overview}</p>
+                <div>
+                  <CreditsSerie creditsSerie={serieCredits} />
+                </div>          
               </Info>
             </Container>
+            <ContainerSerie>
+              {serieVideo && serieVideo.map(videos => (
+                <div key={videos.id}>
+                  <h4>{videos.name}</h4>
+                  <iframe
+                      src={`http://www.youtube.com/embed/${videos.key}`}
+                      title="Trailer Youtube"
+                      height="500px"
+                      width="100%"
+                  ></iframe>
+                </div>
+              ))}
+            </ContainerSerie>
+            {serieSimilar && <SliderSerie infoSerie={serieSimilar} titleSerie={'Series Similares'} />}
         </>
       )}
     </>  

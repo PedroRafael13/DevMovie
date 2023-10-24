@@ -1,0 +1,26 @@
+import  styled  from "styled-components";
+
+export const Title = styled.div`
+  color:#ffffff;
+  font-size:28px;
+  font-weight:700;
+`
+
+export const Container = styled.div`
+  display: flex;
+  margin-top: 30px;
+  gap:10px;
+
+  div{
+    display: flex;
+    flex-direction:column;
+  }
+
+  p{
+    color: #ffffff;
+  }
+
+  img{
+    height:200px;
+  }
+`

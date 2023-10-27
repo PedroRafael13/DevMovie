@@ -92,7 +92,6 @@ useEffect(()=> {
     {topAr && <Slider info={topAr} title={'Melhores no Ar'} />}
     {airingToday && <Slider info={airingToday} title={'Melhores em Exebição'} />}
     {certificações && <Slider info={certificações} title={'Filmes em Cartazes'} />}
-
     </>
   )
 

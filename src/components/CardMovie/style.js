@@ -34,15 +34,9 @@ p {
  color: #ffffff;
  font-weight: 600;
 
- @media screen and (max-width: 600px) {
-    width: 80px;
-    
-
 }
-}
-
 img {
-    height: 200px;
+    
 }
 
 `

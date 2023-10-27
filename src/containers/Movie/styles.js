@@ -17,6 +17,12 @@ export const Background = styled.div`
       width:100%;
       height: 103%;  
     }  
+
+    
 `
 
-export const Container = styled.div``
+export const Container = styled.div`
+  @media screen and (max-width: 600px) {
+    margin-top: 15%;
+}
+`

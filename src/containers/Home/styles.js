@@ -34,6 +34,13 @@ export const Container = styled.div`
   align-items:center;
   height: 100%;
   max-width:1500px;
+
+  @media screen and (max-width: 600px) {
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5px;
+
+}
 `
 
 export const Info = styled.div`
@@ -54,6 +61,31 @@ export const Info = styled.div`
     margin-top:30px;
     margin-bottom:20px ;
   }
+
+  @media screen and (max-width: 600px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    
+    padding: 0;
+
+    h1 {
+        width: 90%;
+        margin-left: 40px;
+        margin-top: 45%;
+        font-size: 2.8rem;
+        font-weight: 600;
+    }
+
+    p {
+        width: 90%;
+        margin-top: 20px;
+        margin-left: 20px;
+        font-size: 16px;
+        
+    } 
+  }  
 `
 
 export const Poster = styled.div`
@@ -63,10 +95,26 @@ export const Poster = styled.div`
     border-radius:30px;
     animation: ${scale} 0.7s linear;
   }
+
+  @media screen and (max-width: 600px) {
+    display: none;
+}
 `
 
 export const ContainerButtons = styled.div`
   display: flex;
   gap:20px;
   margin-top:30px;
+
+  @media screen and (max-width: 600px) {
+    gap: 7px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%;
+
+    button {
+        font-size: 1rem;
+       
+    }
+  }  
 `

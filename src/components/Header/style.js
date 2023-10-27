@@ -15,12 +15,35 @@ export const Container  = styled.div`
   img{
     width:20%;
   }
+
+  @media screen and (max-width: 600px) {
+    height: 50px;
+    width: 25%;
+    padding: 0px 0px;
+    min-height: 67px;
+}
+
+img {
+   
+    width: 25%;
+
+    @media screen and (max-width: 600px) {
+    display: none;
+}
+}
 `
 
 export const Menu  = styled.ul`
   display: flex;
   list-style:none;
   gap:50px;
+
+  @media screen and (max-width: 600px) {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+    margin-top: 14px;
+}
 `
 
 export const Li  = styled.li`
@@ -50,4 +73,31 @@ export const Li  = styled.li`
   &:hover::after{
     width: 100%;
   }
+
+  @media screen and (max-width: 600px) {
+    font-size: 23px;
+    bottom: 15px;
+    margin-top: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+&::after {
+    content: '';
+    height: 3px;
+    width: ${(props) => (props.isActive ? '100%' : 0)};
+    background-color: red;
+    position: absolute;
+    bottom: -10px;
+    left: 50%; /*ou left: 0; */
+    transform: translateX(-50%); /* opcional*/
+    transition: width 0.5s ease-in-out;
+}
+
+&:hover::after {
+    width: 100%;
+}
 `

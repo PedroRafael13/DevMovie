@@ -61,6 +61,10 @@ export const Cover = styled.div`
     box-shadow:rgba(100 100  111/20%) 0px 7px 29px 0px;
     animation: ${scale} 0.5s linear;
   }
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `
 
 export const Info = styled.div`
@@ -84,6 +88,22 @@ export const Info = styled.div`
     margin-top:20px;
     margin-bottom:30px;
   }
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    padding: 0px;
+}
+
+
+h2 {
+    font-size: 50px;
+    font-weight: 700;
+    color: white;
+}  
+
+    @media screen and (max-width: 600px) {
+        width: 96%;
+}
 `
 export const ContainerSerie = styled.div`
     display: flex;

@@ -1,8 +1,31 @@
-# React + Vite
+DevMovie
+Esse projeto tem como seu obejtivo de ser um site de filmes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Começando
+Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
 
-Currently, two official plugins are available:
+🔧 Instalação
+Para o projeto rodar na sua tela você deve dar o comado "yarn dev"
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh -
+Diga como essa etapa será: Precisa do Yarn para baixado 
+
+Até finalizar
+Para finalizar o trabalho é preciso dar um "cnt + v"
+
+🛠️ Construído com
+Para realizar esse projeto foram usadas as seguintes tecnologias e bibliotecas : 
+    axios,
+    react,
+    react-dom,
+    react-router-dom,
+    styled-components,
+    swiper,
+    Api de Filmes,
+
+📌 Versão
+1.0.0
+
+✒️ Autores
+
+Pedro Rafael - Trabalho Inicial - um desenvolvedor
+Pedro Rafael - Documentação - fulanodetal

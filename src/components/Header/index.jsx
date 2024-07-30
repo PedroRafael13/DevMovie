@@ -1,26 +1,24 @@
-import Logo from '../../assets/logo.png'
-import { Container, Menu, Li} from './style'
+import Logo from "../../components/assets/logo.png"
+import { Container, Menu, Li } from './style'
 import { Link, useLocation } from 'react-router-dom'
 import { useState } from 'react'
 
-
-
-function Header () {
+function Header() {
   const [changeBackground, setChangeBackground] = useState(false)
-  const { pathname } = useLocation() 
+  const { pathname } = useLocation()
 
   window.onscroll = () => {
-    if(! changeBackground && window.pageYOffset > 784){
+    if (!changeBackground && window.pageYOffset > 784) {
       setChangeBackground(true)
-    }if(changeBackground && window.pageYOffset <= 784){
+    } if (changeBackground && window.pageYOffset <= 784) {
       setChangeBackground(false)
     }
   }
 
-  return(
+  return (
 
     <Container changeBackground={changeBackground}>
-      <img src={Logo}  />
+      <img src={Logo} />
 
       <Menu>
         <Li isActive={pathname === '/'}>

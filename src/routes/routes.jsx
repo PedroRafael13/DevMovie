@@ -17,12 +17,13 @@ function Router() {
       <Route element={<DefautLeyout />}>
         <Route path='/' element={<Home />} />
         <Route path='/filmes' element={<Movie />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/register' element={<Register />} />
         <Route path='/Series/Animes' element={<Serie />} />
         <Route path='/detail/:id' element={<Detail />} />
         <Route path='/detailSerie/:id' element={<DetailSerie />} />
       </Route>
+
+      <Route path='/login' element={<Login />} />
+      <Route path='/register' element={<Register />} />
     </Routes>
 
   )

@@ -1,73 +1,15 @@
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import Button from "../../components/Button"
 import Modal from "../../components/Modal"
 import Slider from "../../components/Slider"
 import { useNavigate } from "react-router-dom"
 
 import { getImagens } from "../../utils/getImagens"
-import { Background, ButtonSearch, Container, ContainerButtons, HelpBox, Info, InputMovies, Poster } from "./styles"
+import { Background, Container, ContainerButtons, Info, Poster } from "./styles"
 import { getAiringToday, getBreve, getCertificações, getMovies, getPopularPeople, getSeriesPopular, getTopAr, getTopMovies, getTopSeries, getWantedPeople } from "../../services/getData"
 
+
 function Home() {
-
-  function Seek() {
-    if (movie) {
-      for (let i = 0; i < movie.length; i++) {
-
-
-        if (inputValue.current.value.toLowerCase() === movie[i].title.toLowerCase()) {
-
-
-          navigate(`/detalhefilmes/${movie[i].id}`)
-
-
-        }
-      }
-    }
-    if (topMovie) {
-      for (let i = 0; i < topMovie.length; i++) {
-
-
-        if (inputValue.current.value.toLowerCase() === topMovie[i].title.toLowerCase()) {
-
-          console.log('Funcionou!')
-          navigate(`/detalhefilmes/${topMovie[i].id}`)
-
-
-        }
-      }
-    } if (topSeries) {
-      for (let i = 0; i < topSeries.length; i++) {
-
-
-        if (inputValue.current.value.toLowerCase() === topSeries[i].name.toLowerCase()) {
-
-          console.log('Funcionou2!')
-          navigate(`/detalheseries/${topSeries[i].id}`)
-        }
-      }
-    } if (topSeries) {
-      for (let i = 0; i < topSeries.length; i++) {
-
-
-        if (inputValue.current.value.toLowerCase() === topSeries[i].name.toLowerCase()) {
-
-          console.log('Funcionou3!')
-          navigate(`/detalheseries/${topSeries[i].id}`)
-
-        }
-      }
-    }
-
-
-
-
-
-
-  }
-
-  const navigate = useNavigate()
-  const inputValue = useRef()
   const [showModal, setShowModal] = useState(false)
   const [movie, setMovie] = useState()
   const [certificações, setcertificações] = useState()
@@ -121,10 +63,6 @@ function Home() {
     <>
       {movie && (
         <Background img={getImagens(movie.backdrop_path)}>
-          <HelpBox>
-            <InputMovies ref={inputValue} placeholder='Buscar filmes e series..' />
-            <ButtonSearch red={false} onClick={Seek}>Buscar</ButtonSearch>
-          </HelpBox>
           {showModal && <Modal movieId={movie.id} setShowModal={setShowModal} />}
 
           <Container>

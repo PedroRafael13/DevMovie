@@ -1,6 +1,6 @@
-DevMovie
+<h1>DevMovie</h1>
 
-Esse projeto tem como seu obejtivo de ser um site de filmes
+<p>Este projeto tem como objetivo criar um site voltado para o universo dos filmes, oferecendo aos usuários uma plataforma interativa e bem estruturada para explorar informações sobre títulos, gêneros, resenhas e detalhes técnicos, além de facilitar a descoberta de novas produções cinematográficas de forma prática e atrativa.</p>
 
 🚀 Começando
 Essas instruções permitirão que você obtenha uma cópia do projeto em operação na sua máquina local para fins de desenvolvimento e teste.
